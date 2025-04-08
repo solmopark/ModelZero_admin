@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Zero home</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="../script/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <!-- 메인 -->
+    <div id="main-content">
+
+      <div class="custom-cursor"></div> <!-- 마우스따라다니는 원 -->
+      
+      <button id="topButton" style="display: none;"><img src="../img/arrow.svg" alt="">Top</button> <!-- 탑버튼 -->
+
+      <!-- header -->
+      <header>
+        <a href="index.html">
+          <div class="logoWrap"><span>Model Zero</span></div>
+        </a>
+        <div class="menuWrap">
+          <button class="hamburger" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <!-- <img src="../img/menu.svg" alt=""> -->
+          <div class="sidemenu">
+            <ul class="menu">
+              <li>
+                <a href="../index.html"><p>Home</p></a>
+              </li>
+              <li>
+                <a href="#"><p>상품</p></a>
+              </li>
+              
+              <li>
+                <a href="#"><p>매출</p></a>
+              </li>
+              
+              <li>
+                <a href="#"><p>기기관리</p></a>
+              </li>
+              
+              <li>
+                <a href="#"><p>포인트</p></a>
+              </li>
+              <li>
+                <a href="#"><p>쇼핑몰</p></a>
+              </li>
+              <li>
+                <a href="#"><p>A/S접수</p></a>
+              </li>
+              <li>
+                <a href="#"><p>일반설정</p></a>
+              </li>
+              <li>
+                <a href="#"><p>Zero 멤버스</p></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+    
+      <section>
+        <div class="inner">
+          <div class="user-flex">
+            <div class="user">
+              <i class="fa-regular fa-circle-user"></i>
+              <p>커피봇 일산점 님</p>
+              <label class="user"><span>일반회원</span></label>
+            </div>
+            <div class="user-menuWrap">
+              <button class="ani-1">
+                <img src="../img/usermenu.svg" alt="">
+              </button>
+
+            </div>
+          </div>
+
+          <!-- 당월매출 -->
+          <div class="boxStyle bl">
+            <div class="countArea">
+              <div class="countbox mb10">
+                  <p>당월 매출</p>
+                  <h4 data-target="87,000">0<small>원</small></h4>
+              </div>
+              <div class="countbox">
+                <p>전일 매출</p>
+                <h4 data-target="240,000">0<small>원</small></h4>                  
+              </div>
+              <hr class="borderSt-dot">
+              <div class="flex">
+                <div class="countbox St2">
+                  <p>당월 매출</p>  
+                  <h4 data-target="2,600,000">0<small>원</small></h4>
+                </div>
+                <div class="countbox St2">
+                  <p>최고 매출</p>
+                    <h4 data-target="250,000">0<small>원</small></h4>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </body>
+  <script src="../script/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.countbox h4');
+  
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target').replace(/,/g, '');
+                let count = +counter.innerText.replace(/[^0-9]/g, '');
+                const increment = Math.ceil(target / 100);
+  
+                if (count < target) {
+                    count += increment;
+                    if (count > target) count = target;
+  
+                    counter.innerText = formatCurrency(count);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = formatCurrency(target);
+                }
+            };
+  
+            const formatCurrency = (num) => {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+            };
+  
+            updateCount();
+        });
+    });
+  </script>  
+</html>

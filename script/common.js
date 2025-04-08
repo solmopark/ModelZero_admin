@@ -1,17 +1,6 @@
 $(function(){
     
-    setTimeout(() => {
-        $("#intro").fadeOut(500, function () { //0.5초 동안 서서히 사라짐
-            $("#main-content").fadeIn(500); // 메인 화면 나타나는 시간 0.5초
-        });
-    }, 1400); // 1.3초 뒤 페이드아웃 후 메인화면 표시
-
-
-
-
-
-
-
+    
 
 
     // $('.menuWrap').mouseenter(function(){
@@ -136,82 +125,6 @@ document.getElementById("topButton").onclick = function() {
 
 
 
-
-
-
-    // 자주묻는 질문
-    $('.question').click(function () {
-        var parent = $(this).parent();
-
-        if (parent.hasClass("active")) {
-            parent.removeClass("active");
-            parent.find(".answer").slideUp();
-        } else {
-            $(".faq-item").removeClass("active");
-            $(".answer").slideUp();
-            parent.addClass("active");
-            parent.find(".answer").slideDown();
-        }
-    });
-
-
-
-
-
-    // 팝업설정
-    $('.popupCheck img').click(function(){
-        $('.popup').css({'display':'none'})
-    })
-
-
-    // 공지사항
-     // 🔍 검색 및 필터 기능
-     $("#searchButton").click(function () {
-        let searchText = $("#searchInput").val().toLowerCase();
-        let filterCategory = $("#categoryFilter").val();
-
-        $(".notice-item").each(function () {
-            let title = $(this).find(".notice-title").text().toLowerCase();
-            let content = $(this).find("p:nth-child(4)").text().toLowerCase();
-            let category = $(this).data("category");
-
-            let matchCategory = filterCategory === "" || category.includes(filterCategory);
-            let matchSearch = title.includes(searchText) || content.includes(searchText);
-
-            if (matchCategory && matchSearch) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-    });
-
-    // 🖱️ 게시물 클릭 시 조회수 증가 기능
-    // $(".notice-item").click(function () {
-    //     let viewCountElement = $(this).find(".view-count");
-        
-    //     if (viewCountElement.length === 0) {
-    //         $(this).append("<p class='view-count'>조회수: 1</p>");
-    //     } else {
-    //         let currentViews = parseInt(viewCountElement.text().replace("조회수: ", ""));
-    //         viewCountElement.text("조회수: " + (currentViews + 1));
-    //     }
-    // });
-    $(".notice-item").click(function(){
-        let viewCountElement = $(this).find(".view-count span"); // span 요소 선택
-        
-        if (viewCountElement.length === 0) {
-            // 이 부분은 더 이상 필요하지 않음
-            // $(this).append("<p class='view-count'>조회수: 1</p>");
-        } else {
-            let currentViews = parseInt(viewCountElement.text()); // span의 숫자만 가져오기
-            viewCountElement.text(currentViews + 1); // 숫자 증가
-        }
-    });
-
-
-
-
     // 공통 페이지네이션 설정
     function setupPagination(containerSelector, itemSelector, itemsPerPage) {
         let $container = $(containerSelector);
@@ -284,24 +197,6 @@ document.getElementById("topButton").onclick = function() {
     // $("#menuToggle").click(function () {
     //     $(this).toggleClass("open");
     //   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
