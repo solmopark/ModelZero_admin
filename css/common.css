@@ -1,7 +1,19 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
-@font-face { font-family: 'GongGothicMedium'; src: url('https://github.com/projectnoonnu/noonfonts_20-10/blob/main/GongGothicMedium.woff') format('woff'); font-weight: normal; font-style: normal; }
-/* font-family: "Tilt Warp", serif; */
+
+  /* Medium */
+  @font-face {
+    font-family: 'GongGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Light */
+  @font-face {
+    font-family: 'GongGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
 
 /* color */
 :root {
@@ -10,6 +22,15 @@
     --point-color: #005ED4;
     --kakao-color:#FEE500;
     --black:#000;
+    --red :#FF5353;
+    --white:#fff;
+    --orange:#F29500;
+    --blue-25:#BDD0E7;
+    --blue-30:#93B9E7;
+    --blue-70:#6AA1E8;    
+    --blue-90:#2B7FE8;
+
+    --f-St:'GongGothic', sans-serif;
 }
 
 
@@ -20,7 +41,12 @@ html {
     scroll-behavior: smooth; /* 스크롤 부드럽게 */
     overflow-x: hidden; /* 가로 스크롤 제거 */
 }
-
+body >*{
+    font-size: 1.6rem;
+    font-weight: 100;
+    font-family: var(--f-St);
+    line-height: 150%;
+}
 section {width: 100%; max-width: 450px; margin: 0 auto; margin-top: 5rem;}
 
 /* 스크롤바 전체 영역 */
@@ -91,15 +117,25 @@ section {width: 100%; max-width: 450px; margin: 0 auto; margin-top: 5rem;}
     background: var(--point-color);
     padding:2rem;
 }
+.boxStyle.wt {
+    background: var(--white);
+    padding:2rem;
+    color:var(--black);
+}
 
 /* margin */
 .mb10 {margin-bottom: 1rem;}
 .mb20 {margin-bottom: 2rem;}
 .mb30 {margin-bottom: 3rem;}
+/* text */
+.ta-c {text-align: center;}
 
 /* flex */
 .flex {display: flex; align-items: center;}
 .js {justify-content: space-between;}
+
+/* gap */
+.gap-1 {gap: 1rem;}
 
 /* borderStyle */
 .borderSt-dot {
@@ -107,9 +143,23 @@ section {width: 100%; max-width: 450px; margin: 0 auto; margin-top: 5rem;}
     margin: 2rem;
 }
 
+/* label */
+.label {
+    font-size: 1.25rem;
+    border:1px solid var(--point-color);    
+    border-radius: .5rem;
+    padding:.3rem 10px; 
+    color:var(--point-color);
+}
+
+.label.notice {
+    color:var(--red);
+    border-color:var(--red);
+}
+
 /* 메인 start ------------------------------------------*/
 
-#main-content {height: 100%; padding: 2rem;}
+#main-content {height: 100%; padding: 2rem; }
 
 /* header */
 header {
@@ -117,14 +167,15 @@ header {
     top: 0;
     left: 50%;
     transform: translate(-50%);
+    padding:0 2rem;
     height: 80px;
     width: 100%; /* 전체 너비를 사용 */
-    max-width: 1200px; /* 최대 너비를 설정 (필요에 따라 조정) */
+    max-width: 450px; /* 최대 너비를 설정 (필요에 따라 조정) */
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 9999;
-    padding: 2rem;
+    background: var(--black);
 }
 
 /* 메뉴설정 */
@@ -200,16 +251,15 @@ header {
 -----------------------------------*/
 
 section.logWrap {height: 100%; display: flex; align-items: center;}
-section h2 {margin-bottom: 4rem; font-size: 2rem; text-align: center;}
+section.logWrap h2 {margin-bottom: 4rem; font-size: 2rem; text-align: center;}
 section p {font-size: 2rem;}
-section.logWrap p {margin-bottom: 5rem;}
 section >* {width:100%;}
-section form {display: flex; flex-direction: column;}
-section label , .input_box p {text-align: left; margin: 0 0 1rem 0; font-size: 1.6rem;}
+section .section4 form {display: flex; flex-direction: column;}
+section .section4 > label , .input_box p {text-align: left; margin: 0 0 1rem 0; }
 
 form input, section textarea {
     width: 100%;
-    padding: 2rem;
+    padding:  1.7rem 2rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.6);
@@ -222,9 +272,14 @@ form input, section textarea {
 section textarea {height: 100px;}
 section .privacy {
     text-align: left;
-    font-size: 12px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
 }
-section .privacy input {margin-right: 5px; width: 1.5rem; margin-top: 1rem; margin-bottom: 0;}
+section .privacy p {
+    margin-bottom: 0;;
+}
+section .privacy input {margin-right: 5px; width: 1.5rem; margin-bottom: 0;}
 .privacy-textBox {
     padding: 2rem;
     border-radius: 3rem;
@@ -233,13 +288,12 @@ section .privacy input {margin-right: 5px; width: 1.5rem; margin-top: 1rem; marg
     background-color: #0F0F0F;
 }
 
-/* input_box */
-
 /* password_Eye */
 .password-container {position: relative;}
-.password-container .eyes {position: absolute; right: 5%; top: 30%; font-size: 1.6rem; transform: translateY(-50%); cursor: pointer; color:#999999;}
+.password-container .eyes {position: absolute; right: 5%; top: 39%; font-size: 1.6rem; transform: translateY(-50%); cursor: pointer; color:#999999;}
 
 /* btnStyle */
+.btnStyle, .btn, .btn-outline {font-family: var(--f-St);}
 .btnStyle {
     width: 100%;
     background-color: var(--point-color);
@@ -252,12 +306,12 @@ section .privacy input {margin-right: 5px; width: 1.5rem; margin-top: 1rem; marg
     position: relative;
     overflow: hidden;
 }
-.btnStyle p {position: absolute; width: 100%; top: 0; left: 50%; height: 0; transition: all 0.3s ease; font-size: 16px; color: var(--point-color); font-weight: bold; transform: translateX(-50%); display: none;}
+.btnStyle p {position: absolute; width: 100%; top: 0; left: 50%; height: 0; transition: all 0.3s ease; font-size: 16px; color: var(--point-color); font-weight: normal; transform: translateX(-50%); display: none;}
 .btnStyle img {position: absolute; width: 100%; top: 50%; left: 0; height: 0; transition: all 0.3s ease;}
 .btnStyle:hover img {height: 100%; top: 0;}
 .btnStyle:hover p {display: flex; align-items: center; justify-content: center; height: 100%;}
 
-.btn {    
+.btn {  
     width: 100%;
     color: white;
     border: none;
@@ -271,6 +325,16 @@ section .privacy input {margin-right: 5px; width: 1.5rem; margin-top: 1rem; marg
     gap: .5rem;
     background: var(--kakao-color);
     color:var(--black);
+}
+
+.btn-outline {
+    border-radius: 5px;
+    border:1px solid var(--point-color);
+    color: var(--point-color);
+    padding: 1.3rem;
+    font-size: 1.4rem;
+    max-width: 150px;
+    width: 100%;
 }
 
 /* section4 end -------------------------------------*/
@@ -298,6 +362,8 @@ section .privacy input {margin-right: 5px; width: 1.5rem; margin-top: 1rem; marg
 .user-flex {display: flex;
     align-items: center; 
     justify-content: space-between;
+    padding:1.5rem 0;
+    margin-bottom: 3rem;
 }
 .user-flex .user {
     display: flex;
@@ -313,6 +379,7 @@ section .privacy input {margin-right: 5px; width: 1.5rem; margin-top: 1rem; marg
 .countArea .flex {
     text-align: center;
     justify-content: space-between;
+    gap: 1rem;;
 }
 .countArea .countbox.St2 {
     flex-flow: column;
@@ -321,27 +388,124 @@ section .privacy input {margin-right: 5px; width: 1.5rem; margin-top: 1rem; marg
 .countArea .countbox p {font-size: 1.8rem;}
 .countArea .countbox h4 {
     font-size: 2.4rem;
-    font-weight: bold;
+    font-weight: normal;
 }
 .countArea .countbox h4 > small {
     font-size: 1.6rem;
 }
+
+.inner h2 {font-weight: normal; font-size: 2rem;}
+
+.title-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* progress-container */
+.progress-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  .progress-container:last-child{margin-bottom: 0;}
+  .protext {
+    width: 90px;
+    font-weight: normal;
+  }
+  .progress-bar {
+    position: relative;
+    flex-grow: 1;
+    height: 15px;
+    background-color: #E7E7E7;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 15px;;
+    font-size:1rem ;
+    width: 0;
+    transition: width 1s ease;
+    max-width: 200px;;
+  }
+  .fill1 {
+    background-color: var(--blue-25);
+  }
+  .fill2 {
+    background-color: var(--blue-30);
+  }
+  .fill3 {
+    background-color: var(--blue-70);
+  }
+  .fill4 {
+    background-color: var(--blue-90);
+  }
+
+/* notice-flex */
+.notice-flex .box {display: flex;
+    gap: 1rem;
+}
+.notice-flex .box .num {
+    width:15px;
+}
+.tag {
+    width: 54px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    padding:.3rem 1rem;    
+    border:1px solid;
+    border-radius: 5px;
+    height: fit-content;
+    background:#F0F0F0;
+}
+.tag.red {
+    border-color: var(--red);
+    color:var(--red);
+    background:#FFF5F5;
+}
+.tag.blue {
+    border-color: var(--point-color);
+    color:var(--point-color);
+    background:#F1F7FE;
+}
+.tag.org {
+    border-color: var(--orange);
+    color:var(--orange);
+    background:#FEF9F0;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    white-space: nowrap; 
+}
+.notice-flex .textBox ,h4  {
+    overflow: hidden; 
+}
+.notice-flex .textBox span {
+    font-size: 1.2rem;
+    color:#999;
+}
+
 /* home end ------------------------------------- */
 /* ✅ 480px 이하 (모바일 작은 화면) */
 @media (max-width: 425px) {
 
     body {padding: 0;}
-
-    header, section {width: 100%; margin: 0 auto;}
-
-
-
-    /* 메뉴설정 */
+    .main-content section:first-child {margin-top: 8rem;}    /* 메뉴설정 */
     .sidemenu {position: absolute; width: 170px; height: auto;  right: 0; top: 130%; background-color: var(--main_color); border: 1px solid var(--stoke-gray); border-radius: 10px; padding: 1rem; display: none;}
     .sidemenu ul li {width: 140px; margin-bottom: 0.5rem;}
     .sidemenu ul li:last-child {margin: 0;}
 
-    .sidemenu ul li>a {width: 100%; font-size: 14px; font-weight: 600; border-radius: 5px;}
+    .sidemenu ul li>a {width: 100%; font-size: 14px; font-weight: 400; border-radius: 5px;}
     .sidemenu ul li p {padding-left: 1rem;}
 
     .sidemenu .subemenu>a {font-size: 12px; height: 2.9rem; margin: 0.5rem 0;}
@@ -350,5 +514,7 @@ section .privacy input {margin-right: 5px; width: 1.5rem; margin-top: 1rem; marg
 
     .sidemenu a {width: 140px; height: 30px;}
 
+    /* countArea */
+    .countArea .flex {flex-flow: row wrap;justify-content: center;}
 
 }

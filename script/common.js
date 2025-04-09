@@ -1,17 +1,5 @@
 $(function(){
-    
-    
-
-
-    // $('.menuWrap').mouseenter(function(){
-    //     $('.sidemenu').stop().slideDown();
-    // })
-    // $('.menuWrap, .sidemenu').mouseleave(function() {
-    //     $('.sidemenu').stop().slideUp();
-    // });
-    // $('.menuWrap, .sidemenu').click(function() {
-    //     $('.sidemenu').stop().slideUp();
-    // });
+    //-------- menuClick 이벤트 --------
     function updateMenuBehavior() {
         if (window.innerWidth <= 768) {
             // 모바일 환경: 햄버거 메뉴 클릭 시 메뉴 토글
@@ -63,26 +51,15 @@ $(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    //-------- mouseCursor 이벤트 --------
     const cursor = document.querySelector(".custom-cursor");
 
-    // 마우스 이동 시 커서 따라다니기
+    //-------- 마우스 이동 시 커서 따라다니기 --------
     document.addEventListener("mousemove", function (e) {
         cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
     });
 
-    // 클릭 시 원 확대 효과
+    //-------- 클릭 시 원 확대 효과 --------
     document.addEventListener("click", function () {
         cursor.style.width = "60px";
         cursor.style.height = "60px";
@@ -92,7 +69,7 @@ $(function(){
         }, 200);
     });
 
-    // 링크 & 버튼 위에서 색상 변경
+    //-------- 링크 & 버튼 위에서 색상 변경 --------
     document.querySelectorAll("a, button").forEach((el) => {
         el.addEventListener("mouseenter", () => {
             cursor.style.backgroundColor = "rgba(0, 94, 212, 0.5)"; // 파란색 변경
@@ -105,23 +82,25 @@ $(function(){
     });
     
 
+    
 
 
-    // 탑버튼설정
+
+    //-------- 탑버튼설정 --------
     // 페이지 스크롤 시 버튼 표시/숨기기
-window.onscroll = function() {
-    let topButton = document.getElementById("topButton");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        topButton.style.display = "block"; // 100px 이상 스크롤 시 버튼 표시
-    } else {
-        topButton.style.display = "none"; // 100px 이하일 때 버튼 숨기기
-    }
-};
+    window.onscroll = function() {
+        let topButton = document.getElementById("topButton");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            topButton.style.display = "block"; // 100px 이상 스크롤 시 버튼 표시
+        } else {
+            topButton.style.display = "none"; // 100px 이하일 때 버튼 숨기기
+        }
+    };
 
-// 버튼 클릭 시 최상단으로 스크롤
-document.getElementById("topButton").onclick = function() {
-    window.scrollTo({top: 0, behavior: 'smooth'}); // 부드럽게 최상단으로 스크롤
-};
+    //-------- 버튼 클릭 시 최상단으로 스크롤 --------
+    document.getElementById("topButton").onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'}); // 부드럽게 최상단으로 스크롤
+    };
 
 
 
