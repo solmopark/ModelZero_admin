@@ -181,3 +181,13 @@ $(function(){
 
 
 });
+
+// JavaScript
+document.querySelector(".ani-1").addEventListener("click", function () {
+    document.querySelector(".user-setBox").classList.toggle("hidden");
+  });
+  
+  document.querySelector(".close-btn").addEventListener("click", function () {
+    document.querySelector(".user-setBox").classList.add("hidden");
+  });
+  
