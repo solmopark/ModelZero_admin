@@ -32,6 +32,7 @@ section .section4>label,
 
 form input,
 section textarea {
+    font-weight: 100;
     width: 100%;
     padding: 1.4rem 2rem;
     margin-bottom: 2rem;
@@ -325,8 +326,9 @@ h4 {
 .input-group span {
     padding-top: 1rem;
 }
-
-
+.input-group input[type="text"] {min-width: 65px;padding: 1rem 1.2rem;}
+.in-box {display: flex; gap: 1rem; align-items: center;}
+.in-box span {font-weight: 100; font-size: 1.4rem;}
 
 .search {
     background: #7090B0;
@@ -359,7 +361,12 @@ h4 {
 input[type="radio"] {
     accent-color: #007bff;
 }
-
+/* input[type="radio"] {width: 24px; height: 24px; accent-color: var(--white); background-color: transparent;}
+label.SPGM_03_radio  {margin:0; gap:1rem; font-size: 2rem; display: flex; align-items: center; font-weight: 300; white-space: nowrap; } 
+input[type="radio"]:checked + label,
+input[type="radio"]:focus + label {
+  background-color: transparent;
+} */
 
 /* 팝업 배경 오버레이 */
 .popup-overlay {
