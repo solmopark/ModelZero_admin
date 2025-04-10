@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Model Zero home</title>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/common.css">    
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/style.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <script src="../script/jquery-3.6.0.js"></script>
 </head>
@@ -15,8 +16,6 @@
     <div id="main-content">
 
       <div class="custom-cursor"></div> <!-- 마우스따라다니는 원 -->
-      
-      <button id="topButton" style="display: none;"><img src="../img/arrow.svg" alt="">Top</button> <!-- 탑버튼 -->
 
       <!-- header -->
       <header>
@@ -66,8 +65,8 @@
           </div>
         </div>
       </header>
-    
-      <section>
+      <!-- 커피봇 -->
+      <section class="mt50">
         <div class="inner">
           <div class="user-flex">
             <div class="user">
@@ -103,14 +102,14 @@
           </div>          
         </div>
       </section>
-
+      
+      <!-- 당월매출 -->
       <section>
         <div class="inner">
-          <!-- 당월매출 -->
           <div class="flex gap-1 mb20">
             <img src="../img/notice_icon.svg" alt="">
             <label class="label notice">긴급</label>
-            <p>02-23 / 2.01버전 패치사항 안내</p>
+            <p>02-23 / <br class="br-s">2.01버전 패치사항 안내</p>
           </div>
           <div class="boxStyle bl">            
             <div class="countArea">
@@ -140,7 +139,9 @@
       </section>
       
       <section>
-        <div class="inner boxStyle wt">
+        <div class="inner">
+          <div class=" boxStyle wt">
+            
           <div class="title-flex mb20">
             <h2>빠른재고</h2>
             <button class="btn-outline">전체채우기</button>
@@ -176,11 +177,13 @@
             </div>
             <button class="refresh-btn" onclick="replayAnimation(3)"><img src="../img/refresh.svg" alt=""></button>
           </div>
+          </div>
         </div>
       </section>
       <section>
-        <div class="inner boxStyle wt mb20">          
-          <h2 class="ta-c mb20">공지사항</h2>
+        <div class="inner">          
+          <div class=" boxStyle wt mb20">
+            <h2 class="ta-c mb20">공지사항</h2>
           <div class="notice-flex">
             <div class="box">
               <div class="num">1</div>
@@ -223,6 +226,7 @@
                 <span>2024.12.10  11:11:11</span>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>

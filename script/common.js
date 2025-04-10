@@ -82,102 +82,83 @@ $(function(){
     });
     
 
-    
-
-
-
-    //-------- 탑버튼설정 --------
-    // 페이지 스크롤 시 버튼 표시/숨기기
-    window.onscroll = function() {
-        let topButton = document.getElementById("topButton");
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            topButton.style.display = "block"; // 100px 이상 스크롤 시 버튼 표시
-        } else {
-            topButton.style.display = "none"; // 100px 이하일 때 버튼 숨기기
-        }
-    };
-
-    //-------- 버튼 클릭 시 최상단으로 스크롤 --------
-    document.getElementById("topButton").onclick = function() {
-        window.scrollTo({top: 0, behavior: 'smooth'}); // 부드럽게 최상단으로 스크롤
-    };
-
-
-
     // 공통 페이지네이션 설정
     function setupPagination(containerSelector, itemSelector, itemsPerPage) {
         let $container = $(containerSelector);
         let $items = $(itemSelector);
-        let totalPages = Math.max(1, Math.ceil($items.length / itemsPerPage)); // 최소 1페이지 보장
+        let totalPages = Math.max(1, Math.ceil($items.length / itemsPerPage));
         let currentPage = 1;
-
+    
         function showPage(page) {
             if (page < 1 || page > totalPages) return;
-
+    
+            currentPage = page;
             $items.hide();
             $items.slice((page - 1) * itemsPerPage, page * itemsPerPage).show();
             updatePagination();
         }
-
+    
         function updatePagination() {
             let $pageNumbers = $container.find(".page-numbers");
-            $pageNumbers.empty(); // 기존 숫자 버튼 초기화
-
+            $pageNumbers.empty();
+    
             for (let i = 1; i <= totalPages; i++) {
                 let pageButton = $("<button>")
                     .addClass("page-number")
                     .text(i)
                     .attr("data-page", i);
-
+    
                 if (i === currentPage) {
-                    pageButton.addClass("active"); // 현재 페이지는 스타일 다르게
+                    pageButton.addClass("active");
                 }
-
+    
                 pageButton.click(function () {
-                    currentPage = i;
-                    showPage(currentPage);
+                    showPage(i);
                 });
-
+    
                 $pageNumbers.append(pageButton);
             }
-
-            // 이전/다음 버튼 활성화 여부 설정
-            $container.find(".prev").prop("disabled", currentPage === 1);
-            $container.find(".next").prop("disabled", currentPage === totalPages);
+    
+            // 버튼 활성화/비활성화
+            $container.find(".page-prev").prop("disabled", currentPage === 1);
+            $container.find(".page-next").prop("disabled", currentPage === totalPages);
+            $container.find(".page-first").prop("disabled", currentPage === 1);
+            $container.find(".page-last").prop("disabled", currentPage === totalPages);
         }
-
-        $container.find(".prev").click(function () {
+    
+        // 이전 버튼
+        $container.find(".page-prev").click(function () {
             if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
+                showPage(currentPage - 1);
             }
         });
-
-        $container.find(".next").click(function () {
+    
+        // 다음 버튼
+        $container.find(".page-next").click(function () {
             if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
+                showPage(currentPage + 1);
             }
         });
-
+    
+        // 처음으로 버튼
+        $container.find(".page-first").click(function () {
+            showPage(1);
+        });
+    
+        // 마지막으로 버튼
+        $container.find(".page-last").click(function () {
+            showPage(totalPages);
+        });
+    
+        // 초기 페이지 보여주기
         showPage(currentPage);
     }
+    
 
     // 📄 FAQ & 공지사항 페이지네이션 적용
-    setupPagination(".pagination[data-type='faq']", ".faq-item", 4);
+    setupPagination(".pagination[data-type='contest']", ".contest-item", 10);
     setupPagination(".pagination[data-type='notice']", ".notice-item", 6);
-
-
-
-
-
-
-
-    // $("#menuToggle").click(function () {
-    //     $(this).toggleClass("open");
-    //   });
-
-
+    setupPagination(".pagination[data-type='table']", ".tableArea tbody tr", 5);
 
 
 });
