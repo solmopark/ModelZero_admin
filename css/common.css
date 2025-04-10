@@ -12,7 +12,7 @@
 @font-face {
     font-family: 'GongGothic';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
-    font-weight: 300;
+    font-weight: 200;
     font-style: normal;
 }
 /* font-family */
@@ -52,13 +52,24 @@ body>* {
     line-height: 150%;    
     white-space: nowrap;
 }
+/* font-weight */
+.inner h2,h3, h4, 
+.sidemenu ul li>a,
+.btnStyle p
+{font-weight: normal;}
+
+.text-st, input, .text_input textarea,
+.btn-s,.btn.blue,.btn.red,.btn.gr,.btn.wt,
+.caption {font-weight: 200;}
 /* ------------------------------------------
 공통 css start
 ------------------------------------------ */
 /* color */
 .red {color:var(--red);}
 .blue {color:var(--point-color);}
+
 /* text */
+.fs14 {font-size: 1.4rem;}
 .ta-c {
     text-align: center;
 }
@@ -68,6 +79,7 @@ body>* {
     display: flex;
     align-items: center;
 }
+.jc {justify-content: center;}
 
 .js {
     justify-content: space-between;
@@ -98,6 +110,7 @@ body>* {
     gap: .5rem;
   }
 /* margin-bottom */
+.mb0 {margin-bottom: 0 !important;}
 .mb10 {
     margin-bottom: 1rem;
 }
@@ -127,7 +140,13 @@ body>* {
 .ml-auto {margin-left:auto;}
 
 /* padding */
+.pt20 {padding-top: 2rem;}
+
 .pb20 {padding-bottom: 2rem;}
+
+/* width */
+.w100 {width:100%;}
+
 /* overflow */
 .hidden {
     display: none;
@@ -167,10 +186,11 @@ body>* {
 
 /* btnStyle */
 .btnStyle,
-.btn,
+.btn,.btn-s,
 .btn-outline {
     font-family: var(--f-St);
 }
+
 
 .btnStyle:hover p {
     display: flex;
@@ -195,35 +215,35 @@ body>* {
     background: var(--kakao-color);
     color: var(--black);
 }
+
+.btn.blue,
+.btn.red ,.btn.gr,
+.btn.wt,
+.btn-outline {
+    border-radius: 5px;
+}
+.btn-i,.btn-s {border-radius: 4px;}
+
 .btn.blue {    
     color:var(--white);
     background: var(--point-color);
-    font-weight: 100;
-    border-radius: 5px;
 }
 .btn.red {    
     color:var(--white);
     background: var(--red);
-    font-weight: 100;
-    border-radius: 5px;
 }
 .btn.gr {    
     color:#999;
     background: #f5f5f5;
-    font-weight: 100;
-    border-radius: 5px;
 }
 .btn.wt {
     background:var(--white);
     color: var(--point-color);
-    font-weight: 100;
-    border-radius: 5px;
     width: fit-content;
     padding: 1.4rem 3rem;
 }
 
 .btn-outline {
-    border-radius: 5px;
     border: 1px solid var(--point-color);
     color: var(--point-color);
     padding: 1.3rem;
@@ -233,15 +253,29 @@ body>* {
     background:var(--white);
 }
 
+.btn-outline.gr {
+    background:transparent;
+    border: 1px solid #999;
+    color: #999;
+    max-width: 100%;
+    margin:1rem 0 0;
+}
+
 .btn-i {
-    min-width: 35px;
+    max-width: 35px;
     width: 100%;
     padding: 5.5px;
-    border-radius: .4rem;
     background: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btn-s {
+    font-size: 1rem;
+    padding:.7rem 1rem;
+    color:#999;
+    background: #f5f5f5;
 }
 
 .btnStyle {
@@ -266,7 +300,6 @@ body>* {
     transition: all 0.3s ease;
     font-size: 16px;
     color: var(--point-color);
-    font-weight: normal;
     transform: translateX(-50%);
     display: none;
 }
@@ -296,6 +329,8 @@ body>* {
     display: flex;
     gap: 1rem;
 }
+
+.btnFlex .btn-outline {max-width: 100%;}
 /* tag */
 .tag {
     width: 58px;
@@ -334,7 +369,14 @@ body>* {
     padding: .3rem 10px;
     color: var(--point-color);
 }
-
+.label.manager {    
+    color: #7090B0;
+    border-color: #7090B0;
+}
+.label.fran{
+    color: #F29500;
+    border: 1px solid #F29500;
+}
 .label.notice {
     color: var(--red);
     border-color: var(--red);
@@ -358,25 +400,12 @@ label.plus {
 
 
 /* input */
-form input,
-section textarea {
+input[type="text"],input[type="password"]{
     width: 100%;
-    padding: 1.4rem 2rem;
-    margin-bottom: 2rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    color: white;
-    font-size: 1.6rem;
-    background-color: white;
-    position: relative;
-}
-
-input[type="text"]{
-    width: 100%;
-    padding: 1rem 2rem;
+    padding: 1rem 1.4rem;
     border-radius: .5rem;
     border: 1px solid rgba(255, 255, 255, 0.6);
-    color: #ddd;
+    color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
     font-size: 1.4rem;
     background-color: white;
     position: relative;
@@ -389,6 +418,17 @@ input[type="date"] {
     font-size: 14px;
 }
 
+.inputWrap .data_input {display: flex; align-items: center; margin-bottom: 1rem; gap: 1rem; transition: all 1s linear;}
+.inputWrap .data_input p {font-size: 1.4rem; width:40%; white-space: nowrap;}
+
+.inputWrap.St02 .data_input > p {width:100%;}
+.inputWrap.St02 .data_input .in-box p {width: auto;}
+
+
+.text_input {display: flex; flex-flow: column; }
+.text_input textarea {font-size: 1.4rem; color:#999; padding:1.2rem; border-radius: .4rem;}
+.text_input p {margin-bottom: 1rem;font-size: 1.4rem;}
+
 /* select */
 .select-box {
     width: 100%;
@@ -399,59 +439,82 @@ input[type="date"] {
   }
   
   .select-box select {
+    font-family: var(--f-St);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: rgba(110, 115, 124, 0.4);
-    border-radius: 7px;
-    padding: 0.8rem 1.2rem;
-    font-size: 16px;
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 0.8rem 1rem ;
+    font-size: 11px;
     cursor: pointer;
     outline: none;
     width: 100%;
-    height: 4.2rem;
-    font-size: 1.4rem;
+    height: 3rem;
+    font-size: 1rem;
     letter-spacing: -0.03rem;
     color:var(--white);
   }
+  .select-box select:focus {
+    color: #000;
+  }
+ 
   
   .select-box i {
     position: absolute;
-    right: 15px;
+    right:12px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 18px;
+    font-size: 8px;
     color: var(--white);
     transition: transform 0.15s ease-in;
     pointer-events: none;
   }
   
+  .select-box.user01 select {    
+    color: var(--point-color);
+    border: 1px solid var(--point-color);
+  }  
+  .select-box.user01 i {color: var(--point-color);}
+
+  .select-box.user02  select{    
+    color: #7090B0;
+    border: 1px solid #7090B0;
+  }  
+  .select-box.user02 i {color: #7090B0;}
+  .select-box.user03 select {    
+    color: #F29500;
+    border: 1px solid #F29500;
+  } 
+  .select-box.user03 i {color: #F29500;}
 /* checked */
-/* input[type="checkbox"] {
+input[type="checkbox"] {
     appearance: none;
-    width: 12px;
-    height: 12px;
-    border: 1px solid #ddd;    
-    background-color: var(--white);
+    max-width: 16px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ddd;
     box-sizing: border-box;
     outline: 0;
     border-radius: 4px;
-    margin-right: 0.5rem;
   }
   input[type="checkbox"]:checked {
-    border-color: var(--main_color);
-    background-color: var(--main_color);
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
-  } */
+    border-color: var(--point-color);
+    background-color: var(--point-color);
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='var(--black)' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  }
 /* table */
-.tableArea {width:100%;}
+.tableArea {width:100%; margin-bottom: 2rem;}
 .tableArea table {width:100%; text-align: center; border-collapse: collapse; overflow: hidden;font-size: 1.4rem; line-height: 130%;;}
 .tableArea thead tr {
     color:#999;
     border-bottom: 1px solid var(--stoke-gray);
 }
-.tableArea tr th ,.tableArea tr td  {padding: 1rem; white-space: nowrap;}
+.tableArea tr th ,.tableArea tr td  {padding: .5rem; white-space: nowrap;}
 .tableArea tr td  {font-size: 1.2rem;}
+.tableArea.St02 {margin-bottom: 8rem;}
+.tableArea.St02 tr td,.tableArea.St02 tr td .tag { font-size: 1rem;}
+.tableArea.St02 tr th{ font-size: 1.1rem;}
 
 /* ------------------------------------------
 공통 css end
@@ -468,10 +531,9 @@ section {
     margin: 0 auto;
 }
 
-
+h3 {font-size: 1.8rem;}
 h4 {
     font-size: 1.5rem;
-    font-weight: normal;
     -webkit-line-clamp: 1;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -479,13 +541,16 @@ h4 {
 
 .text-st {
     font-size: 1.4rem;
-    font-weight: 100;
-    width:115px;
+    /* width:115px; */
 }
 
+.caption {
+    font-size: 1.2rem;
+    color:#999;
+}
 /* 스크롤바 전체 영역 */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
     /* 스크롤바 너비 */
 }
 
@@ -629,7 +694,6 @@ header {
 .sidemenu ul li>a {
     width: 100%;
     font-size: 18px;
-    font-weight: 800;
     border-radius: 5px;
 }
 
@@ -697,7 +761,6 @@ header {
 .inner {padding:0 2rem; margin-bottom: 2rem;}
 
 .inner h2 {
-    font-weight: normal;
     font-size: 2rem;
 }
 section p {
@@ -753,7 +816,7 @@ section>* {
     .sidemenu ul li>a {
         width: 100%;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 100;
         border-radius: 5px;
     }
     .sidemenu ul li p {
@@ -775,5 +838,6 @@ section>* {
     .hamburger {
         width:34px;
     }
+    
 
 }

@@ -158,7 +158,7 @@ $(function(){
     // 📄 FAQ & 공지사항 페이지네이션 적용
     setupPagination(".pagination[data-type='contest']", ".contest-item", 10);
     setupPagination(".pagination[data-type='notice']", ".notice-item", 6);
-    setupPagination(".pagination[data-type='table']", ".tableArea tbody tr", 5);
+    setupPagination(".pagination[data-type='table']", ".tableArea tbody tr", 6);
 
 
 });
@@ -172,3 +172,23 @@ document.querySelector(".ani-1").addEventListener("click", function () {
     document.querySelector(".user-setBox").classList.add("hidden");
   });
   
+
+// 파일 선택
+function previewLogo(event) {
+    const input = event.target;
+    const file = input.files[0];
+    
+    if (file) {
+      // 파일 이름 표시
+      document.getElementById('fileName').textContent = file.name;
+
+      // 이미지 미리보기
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = document.getElementById('logoPreview');
+        img.src = e.target.result;
+        img.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  }
