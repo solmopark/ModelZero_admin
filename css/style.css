@@ -104,11 +104,15 @@ home start
 ------------------------------------- */
 .user-menuWrap {
     position: relative;
+    position: fixed;
+    right: 4%;
+    bottom:-80%;
+    transform: translate(-50%, -50%);
 }
 
 .user-setBox {
     position: absolute;
-    top: 80px;
+    top: 0;
     right: 0;
     width: 300px;
     background-color: var(--main_color);
@@ -219,7 +223,17 @@ home start
     gap: 1rem;
     ;
 }
-
+.countbox h4 {
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .countbox .number {
+    display: inline-block;
+    min-width: 7ch; /* 자리수에 맞춰 고정 폭 설정 */
+    text-align: right;
+  }
+  
 .countArea .countbox.St2 {
     flex-flow: column;
 }
@@ -280,7 +294,7 @@ home start
     font-size: 1rem;
     width: 0;
     transition: width 1s ease;
-    max-width: 200px;
+    max-width: 227px;
     ;
 }
 
@@ -319,6 +333,24 @@ h4 {
     font-size: 1.2rem;
     color: #999;
 }
+
+/* notice slider */
+.notice-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .notice-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .notice-item {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+  
 
 /* -----------------------------------
 sales start 
@@ -446,8 +478,10 @@ input[type="radio"] {
 .history {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0;    
     max-height: 500px;
+    min-height: 380px;
+    height: calc(58vh);
     overflow-y: auto;
 }
 
@@ -647,7 +681,8 @@ normalSet start
 
 .productSet .proBox .flex.js p,
 .productSet .proBox .grid .input p,
-.productSet .proBox .grid .in-box p {font-size: 1.3rem;}
+.productSet .proBox .grid .in-box p,
+.productSet .proBox .grid > .flex p{font-size: 1.3rem;}
 /* .productSet .proBox .flex.js, */
 .productSet .proBox .grid .input p{margin-bottom: 1rem;}
 .productSet .proBox .grid input[type="text"] {
@@ -701,7 +736,7 @@ noticeArea start
     }    
     .history li h5 {font-size: 1.4rem;}
     .input-group input[type="text"],
-    .in-box span {font-size: 1.2rem;}
+    .in-box span ,.tableArea tr th, .tableArea tr td{font-size: 1.2rem;}
 
     /* row wrap */
     .pointWrap .input-group:nth-child(2){flex-flow: row wrap;}

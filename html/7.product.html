@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <script defer type="text/javascript" src="../script/common.js"></script>
   <script src="../script/jquery-3.6.0.js"></script>
 </head>
 
@@ -65,6 +67,32 @@
           </ul>
         </div>
       </div>
+      
+      <div class="user-menuWrap">
+        <button class="ani-1">
+          <img src="../img/usermenu.svg" alt="메뉴 버튼">
+        </button>
+        <div class="user-setBox hidden">
+          <div class="popup-header">
+            <h2>원격조정</h2>
+            <button class="close-btn">&times;</button>
+          </div>
+          <div class="popup-body">
+            <select class="popup-select">
+              <option value="option1">St0086Cm0090</option>
+              <option value="option2">옵션 2</option>
+            </select>
+            <div class="button-grid">
+              <button><span><img src="../img/menu-set-icon01.svg" alt=""></span><span>기기 세척</span></button>
+              <button><span><img src="../img/menu-set-icon02.svg" alt=""></span><span>컵 디스펜서</span></button>
+              <button><span><img src="../img/menu-set-icon03.svg" alt=""></span><span>제빙기</span></button>
+              <button><span><img src="../img/menu-set-icon04.svg" alt=""></span><span>프로그램 재시작</span></button>
+              <button><span><img src="../img/menu-set-icon05.svg" alt=""></span><span>프로그램 종료</span></button>
+              <button><span><img src="../img/menu-set-icon06.svg" alt=""></span><span>재부팅</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
     <!-- 커피봇 -->
     <section class="mt80">
@@ -74,31 +102,6 @@
             <i class="fa-regular fa-circle-user"></i>
             <p>커피봇 일산점 님</p>
             <label class="label"><span>일반회원</span></label>
-          </div>
-          <div class="user-menuWrap">
-            <button class="ani-1">
-              <img src="../img/usermenu.svg" alt="메뉴 버튼">
-            </button>
-            <div class="user-setBox hidden">
-              <div class="popup-header">
-                <h2>원격조정</h2>
-                <button class="close-btn">&times;</button>
-              </div>
-              <div class="popup-body">
-                <select class="popup-select">
-                  <option value="option1">St0086Cm0090</option>
-                  <option value="option2">옵션 2</option>
-                </select>
-                <div class="button-grid">
-                  <button><span><img src="../img/menu-set-icon01.svg" alt=""></span><span>기기 세척</span></button>
-                  <button><span><img src="../img/menu-set-icon02.svg" alt=""></span><span>컵 디스펜서</span></button>
-                  <button><span><img src="../img/menu-set-icon03.svg" alt=""></span><span>제빙기</span></button>
-                  <button><span><img src="../img/menu-set-icon04.svg" alt=""></span><span>프로그램 재시작</span></button>
-                  <button><span><img src="../img/menu-set-icon05.svg" alt=""></span><span>프로그램 종료</span></button>
-                  <button><span><img src="../img/menu-set-icon06.svg" alt=""></span><span>재부팅</span></button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>          
       </div>
@@ -121,7 +124,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="">
+              <tr onclick="window.open('./8.product_Set02.html', '_blank')">
                 <td>1</td>
                 <td><img src="../img/ice-coffee.svg" alt=""></td>
                 <td>아이스 <br>아메리카노</td>
@@ -137,7 +140,7 @@
                   <span class="tag red">삭제</span>
                 </td>
               </tr>
-              <tr class="">
+              <tr  onclick="window.open('./8.product_Set02.html', '_blank')">
                 <td>2</td>
                 <td><img src="../img/ice-coffee.svg" alt=""></td>
                 <td>아이스 <br>아메리카노</td>
@@ -153,7 +156,7 @@
                   <span class="tag red">삭제</span>
                 </td>
               </tr>
-              <tr class="">
+              <tr  onclick="window.open('./8.product_Set02.html', '_blank')">
                 <td>3</td>
                 <td><img src="../img/ice-coffee.svg" alt=""></td>
                 <td>아이스 <br>아메리카노</td>
@@ -179,9 +182,14 @@
       </div>
     </section>
   </div>
-
 </body>
-<script defer type="text/javascript" src="../script/common.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+<script>
+  document.querySelectorAll(".clickable-row").forEach(row => {
+    row.addEventListener("click", function(e) {
+      // toggle-switch, input 클릭 시는 무시
+      if (e.target.closest('.toggle-switch') || e.target.tagName === 'INPUT') return;
+      window.open(this.dataset.href, '_blank');
+    });
+  });
+</script>
 </html>

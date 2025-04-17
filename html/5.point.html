@@ -64,6 +64,32 @@
           </ul>
         </div>
       </div>
+
+      <div class="user-menuWrap">
+        <button class="ani-1">
+          <img src="../img/usermenu.svg" alt="메뉴 버튼">
+        </button>
+        <div class="user-setBox hidden">
+          <div class="popup-header">
+            <h2>원격조정</h2>
+            <button class="close-btn">×</button>
+          </div>
+          <div class="popup-body">
+            <select class="popup-select">
+              <option value="option1">St0086Cm0090</option>
+              <option value="option2">옵션 2</option>
+            </select>
+            <div class="button-grid">
+              <button><span><img src="../img/menu-set-icon01.svg" alt=""></span><span>기기 세척</span></button>
+              <button><span><img src="../img/menu-set-icon02.svg" alt=""></span><span>컵 디스펜서</span></button>
+              <button><span><img src="../img/menu-set-icon03.svg" alt=""></span><span>제빙기</span></button>
+              <button><span><img src="../img/menu-set-icon04.svg" alt=""></span><span>프로그램 재시작</span></button>
+              <button><span><img src="../img/menu-set-icon05.svg" alt=""></span><span>프로그램 종료</span></button>
+              <button><span><img src="../img/menu-set-icon06.svg" alt=""></span><span>재부팅</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <section class="mt80">
@@ -72,7 +98,7 @@
             <h2 class="ta-c mb20">포인트</h2>
           <div class="input-group in-1">
             <div class="in-box">
-              <input type="text" name="" placeholder="적립율">              
+              <input type="text" name="" placeholder="적립율%">              
               <span>연락처</span>
             </div>
             <div class="in-box">              
@@ -99,16 +125,16 @@
       <div class="inner">
         <div class="tableArea">
           <table>
-            <button id="selectAllBtn" class="btn-s">전체선택  </button>
+            <button id="selectAllBtn" class="btn-s mb10">전체선택  </button>
             <tbody>
-              <tr class="" style="">
+              <tr class="on-popup" style="">
                 <td><input type="checkbox" name="" id=""></td>
                 <td>1</td>
                 <td>010-1234-5678</td>
                 <td>2,600원</td>
                 <td class=""><span class="tag red">삭제</span></td>
               </tr>
-              <tr class="" style="">
+              <tr class="on-popup">
                 <td><input type="checkbox" name="" id=""></td>
                 <td>2</td>
                 <td>010-1234-5678</td>
@@ -217,16 +243,23 @@
 <script defer type="text/javascript" src="../script/common.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-  const excelBtn = document.querySelector(".btn.blue");
+  const excelBtns = document.querySelectorAll(".on-popup, .btn.blue");
   const popupOverlay = document.querySelector(".popup-overlay");
+  const cancelBtn = document.querySelector(".popup-footer .gr");
 
-  excelBtn.addEventListener("click", () => {
-    popupOverlay.style.display = "flex"; // <-- 여기!
+  // 각각의 버튼에 이벤트 등록
+  excelBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      popupOverlay.style.display = "flex";
+    });
   });
 
   function closePopup() {
     popupOverlay.style.display = "none";
   }
+  // 취소 버튼에도 팝업 닫기 기능 추가
+  cancelBtn.addEventListener("click", closePopup);
+  
 
   // 체크박스 전체선택
 document.addEventListener('DOMContentLoaded', function () {

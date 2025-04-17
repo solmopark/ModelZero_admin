@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script defer type="text/javascript" src="../script/common.js"></script>
   <script src="../script/jquery-3.6.0.js"></script>
 </head>
 
@@ -65,9 +66,34 @@
           </ul>
         </div>
       </div>
+      <div class="user-menuWrap">
+        <button class="ani-1">
+          <img src="../img/usermenu.svg" alt="메뉴 버튼">
+        </button>
+        <div class="user-setBox hidden">
+          <div class="popup-header">
+            <h2>원격조정</h2>
+            <button class="close-btn">×</button>
+          </div>
+          <div class="popup-body">
+            <select class="popup-select">
+              <option value="option1">St0086Cm0090</option>
+              <option value="option2">옵션 2</option>
+            </select>
+            <div class="button-grid">
+              <button><span><img src="../img/menu-set-icon01.svg" alt=""></span><span>기기 세척</span></button>
+              <button><span><img src="../img/menu-set-icon02.svg" alt=""></span><span>컵 디스펜서</span></button>
+              <button><span><img src="../img/menu-set-icon03.svg" alt=""></span><span>제빙기</span></button>
+              <button><span><img src="../img/menu-set-icon04.svg" alt=""></span><span>프로그램 재시작</span></button>
+              <button><span><img src="../img/menu-set-icon05.svg" alt=""></span><span>프로그램 종료</span></button>
+              <button><span><img src="../img/menu-set-icon06.svg" alt=""></span><span>재부팅</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
     <!-- 커피봇 -->
-    <section class="mt80">
+    <section class="mt8">
       <div class="inner">
         <div class="user-flex">
           <div class="user">
@@ -75,37 +101,29 @@
             <p>커피봇 일산점 님</p>
             <label class="label"><span>일반회원</span></label>
           </div>
-          <div class="user-menuWrap">
-            <button class="ani-1">
-              <img src="../img/usermenu.svg" alt="메뉴 버튼">
-            </button>
-            <div class="user-setBox hidden">
-              <div class="popup-header">
-                <h2>원격조정</h2>
-                <button class="close-btn">&times;</button>
-              </div>
-              <div class="popup-body">
-                <select class="popup-select">
-                  <option value="option1">St0086Cm0090</option>
-                  <option value="option2">옵션 2</option>
-                </select>
-                <div class="button-grid">
-                  <button><span><img src="../img/menu-set-icon01.svg" alt=""></span><span>기기 세척</span></button>
-                  <button><span><img src="../img/menu-set-icon02.svg" alt=""></span><span>컵 디스펜서</span></button>
-                  <button><span><img src="../img/menu-set-icon03.svg" alt=""></span><span>제빙기</span></button>
-                  <button><span><img src="../img/menu-set-icon04.svg" alt=""></span><span>프로그램 재시작</span></button>
-                  <button><span><img src="../img/menu-set-icon05.svg" alt=""></span><span>프로그램 종료</span></button>
-                  <button><span><img src="../img/menu-set-icon06.svg" alt=""></span><span>재부팅</span></button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>          
       </div>
     </section>
 
     <section class="pb20">
-      <div class="inner">
+      <div class="inner" id="section-container">
+        <div class="boxStyle gr mb20">
+          <div class="set-box">
+            <p class="ta-c">300X300</p>
+          
+            <!-- 숨겨진 파일 입력 -->
+            <input type="file" id="logoUpload" accept="image/png" style="display: none;" onchange="previewLogo(event)">
+          
+            <!-- 사용자에게 보여지는 버튼 -->
+            <button class="btn-outline gr" onclick="document.getElementById('logoUpload').click()">파일선택</button>
+          
+            <!-- 파일 이름 표시 -->
+            <p id="fileName" style="margin-top: 10px; font-size: 14px; color: #555;"></p>
+          
+            <!-- 이미지 미리보기 -->
+            <img id="logoPreview" src="" alt="로고 미리보기" style="margin-top: 10px; max-width: 200px; display: none;">
+          </div>
+        </div>
         <div class="boxStyle gr mb20">
           <div class="input-group col">
             <div>
@@ -214,13 +232,12 @@
         </div>
         <div class="btnFlex">
           <button class="btn-outline">저장</button>
-          <button class="btn blue">+ 항목 추가</button>
+          <button class="btn blue" id="add-item-btn">+ 항목 추가</button>
         </div>
       </div>
     </section>
   </div>
 
 </body>
-<script defer type="text/javascript" src="../script/common.js"></script>
 
 </html>

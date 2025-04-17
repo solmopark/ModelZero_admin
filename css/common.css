@@ -67,6 +67,7 @@ body>* {
 /* color */
 .red {color:var(--red);}
 .blue {color:var(--point-color);}
+.none-bg {background:inherit !important;}
 
 /* text */
 .fs14 {font-size: 1.4rem;}
@@ -133,8 +134,11 @@ body>* {
 .mt50 {
     margin-top: 5rem;
 }
-.mt80 {
+.mt8 {
     margin-top: 8rem;
+}
+.mt80 {
+    margin-top: 15rem;
 }
 /* margin-left */
 .ml-auto {margin-left:auto;}
@@ -154,6 +158,10 @@ body>* {
 
 /* br */
 .br-s {display: none;}
+
+/* position */
+.rel {position: relative;}
+.ab {position: absolute;}
 
 /* boxStyle */
 .boxStyle {
@@ -390,6 +398,10 @@ label.plus {
     width: 16px;
     height: 16px;
     line-height: 16px;
+    position:absolute;
+    top: 25%;
+    right: 15%;
+    transform: (-50%,-50%);
 }
 .label.full {
     background: var(--point-color);    
@@ -512,6 +524,8 @@ input[type="checkbox"] {
 }
 .tableArea tr th ,.tableArea tr td  {padding: .5rem; white-space: nowrap;}
 .tableArea tr td  {font-size: 1.2rem;}
+.tableArea tbody tr {cursor: pointer; background: rgba(255, 255, 255, 0);  transition: backgrond 2s ease-in-out;}
+.tableArea tbody tr:hover {background: rgba(255, 255, 255, 0.2);}
 .tableArea.St02 {margin-bottom: 8rem;}
 .tableArea.St02 tr td,.tableArea.St02 tr td .tag { font-size: 1rem;}
 .tableArea.St02 tr th{ font-size: 1.1rem;}
@@ -543,7 +557,7 @@ h4 {
     font-size: 1.4rem;
     /* width:115px; */
 }
-
+.protext {font-size: 1.6rem;}
 .caption {
     font-size: 1.2rem;
     color:#999;
