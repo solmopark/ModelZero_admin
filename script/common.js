@@ -181,75 +181,7 @@ document.querySelector(".user-setBox").classList.toggle("hidden");
 document.querySelector(".close-btn").addEventListener("click", function () {
 document.querySelector(".user-setBox").classList.add("hidden");
 });
-
-//-------- 프로그래스바 이벤트 --------
-// const fills = document.querySelectorAll(".progress-fill");
-// const values = [25, 30, 70, 90]; // 고정 값
-
-// function animateProgress(index, value) {
-//   const fill = fills[index];
-//   fill.style.transition = "none";
-//   fill.style.width = "0%";
-//   fill.textContent = "0%";
-
-//   // 강제 리렌더링
-//   void fill.offsetWidth;
-
-//   // 다시 애니메이션 설정
-//   fill.style.transition = "width 1s ease";
-//   fill.style.width = value + "%";
-//   fill.textContent = value + "%";
-// }
-
-// function replayAnimation(index) {
-//   animateProgress(index, values[index]);
-// }
-
-// // 초기 로딩 시
-// window.addEventListener("DOMContentLoaded", () => {
-//   values.forEach((val, idx) => {
-//     animateProgress(idx, val);
-//   });
-// });
-const fills = document.querySelectorAll(".progress-fill");
-const values = [25, 30, 70, 90]; // 초기값
-
-function animateProgress(index, value, changeColor = false) {
-  const fill = fills[index];
-
-  // 초기화
-  fill.style.transition = "none";
-  fill.style.width = "0%";
-  fill.textContent = "0%";
-  fill.style.backgroundColor = ""; // 기본색으로 리셋
-
-  // 강제 리렌더링
-  void fill.offsetWidth;
-
-  // 애니메이션 시작
-  fill.style.transition = "width 1s ease";
-  fill.style.width = value + "%";
-
-  // 애니메이션 후에 텍스트 & 색상 설정
-  setTimeout(() => {
-    fill.textContent = value + "%";
-    if (changeColor) {
-      fill.style.backgroundColor = "#2B7FE8"; // --blue-90
-    }
-  }, 1000); // transition과 동일한 시간
-}
-
-function replayAnimation(index) {
-  animateProgress(index, 100, true);
-}
-
-// 초기 로딩 시
-window.addEventListener("DOMContentLoaded", () => {
-  values.forEach((val, idx) => {
-    animateProgress(idx, val);
-  });
-});
-
+  
 
 
 // 파일 선택

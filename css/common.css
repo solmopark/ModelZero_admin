@@ -70,6 +70,7 @@ body>* {
 .none-bg {background:inherit !important;}
 
 /* text */
+.fs12 {font-size: 1.2rem !important;}
 .fs14 {font-size: 1.4rem;}
 .ta-c {
     text-align: center;

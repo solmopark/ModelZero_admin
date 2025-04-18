@@ -294,7 +294,7 @@ home start
     font-size: 1rem;
     width: 0;
     transition: width 1s ease;
-    max-width: 227px;
+    max-width: 240px;
     ;
 }
 
@@ -366,7 +366,7 @@ sales start
 .input-group span {
     padding-top: 1rem;
 }
-.input-group input[type="text"] {min-width: 65px;padding: 1rem 1.2rem;}
+.input-group input[type="text"] {min-width: 65px;padding: 1rem 1rem;}
 
 .search {
     background: #7090B0;
