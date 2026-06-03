@@ -1,14 +1,13 @@
 @charset "utf-8";
 
 /* font-weight */
-.countArea .countbox h4 ,.protext,
+.countArea .countbox h4 ,.proText,
 .progress-fill, .history li h5,
 .pagination .page-number.active 
 {font-weight: normal;}
 
 form input,.in-box span ,
 section textarea,.history li p {font-weight: 200;}
-
 
 /* -----------------------------------
 logWrap
@@ -273,7 +272,7 @@ home start
     margin-bottom: 0;
 }
 
-.protext {
+.proText {
     width: 90px;
 }
 
@@ -601,7 +600,7 @@ input[type="radio"] {
 }
 
 /* -----------------------------------
-divice 
+diVice 
 -----------------------------------*/
 .inventory-Wrap .progress-container {
     flex-flow: column;
